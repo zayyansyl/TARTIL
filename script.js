@@ -53,7 +53,7 @@ async function handleStop() {
   formData.append("ayat", ayatSelect.value);
 
   try {
-    const res = await fetch("/https://tartil-backend.onrender.com/predict", { method: "POST", body: formData });
+    const res = await fetch("https://tartil-backend.onrender.com/predict", { method: "POST", body: formData });
     const result = await res.json();
 
     console.log("🎯 Hasil:", result);
