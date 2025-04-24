@@ -1,0 +1,161 @@
+body {
+  font-family: sans-serif;
+  background-color: #FAF7F0;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #B17457;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.controls label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-weight: bold;
+}
+
+.controls select {
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+.ayat-box {
+  text-align: center;
+  font-size: 2rem;
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  max-width: 500px;
+  margin: 1rem auto;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.mic-box {
+  text-align: center;
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  max-width: 500px;
+  margin: 1rem auto;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.accuracy-bar {
+  background: #eee;
+  height: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 1rem 0;
+}
+
+.bar-fill {
+  height: 100%;
+  background: linear-gradient(to right, #f44336, #ffeb3b, #4caf50);
+  transition: width 0.5s ease;
+}
+
+.corrections {
+  text-align: left;
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background: #f9f9f9;
+  border-radius: 8px;
+}
+
+.corrections h3 {
+  margin-top: 0;
+  color: #B17457;
+}
+
+.corrections ul {
+  padding-left: 1.2rem;
+  margin: 0.5rem 0;
+}
+
+.corrections li {
+  margin-bottom: 0.5rem;
+}
+
+.audio-controls {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.audio-controls button {
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 1rem;
+  background-color: #B17457;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s;
+}
+
+.audio-controls button:hover {
+  background-color: #9a6147;
+}
+
+.hidden {
+  display: none;
+}
+
+#similarity-score {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+  .ayat-box {
+    font-size: 1.5rem;
+    padding: 1rem;
+  }
+  
+  .controls {
+    flex-direction: column;
+    align-items: center;
+  }
+}

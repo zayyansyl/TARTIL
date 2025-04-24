@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Al-Fatihah</title>
+  <link rel="stylesheet" href="/style2.css" />
+</head>
+<body>
+  <header>
+    <h1>Surat Al-Fatihah</h1>
+  </header>
+
+  <main>
+    <div class="controls">
+      <label>Ayat:
+        <select id="ayatSelect" onchange="tampilkanAyat()">
+          <option value="1" selected>1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+        </select>
+      </label>
+    </div>
+
+    <div class="ayat-box">
+      <p id="arabic-text">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
+    </div>
+
+    <div class="mic-box">
+      <p>Ucapkan bacaan di atas</p>
+      <div class="audio-controls">
+        <button id="btnStart">🎤 Rekam</button>
+        <button id="btnStop" class="hidden">⏹️ Stop</button>
+        <button id="btnPlay" class="hidden">▶️ Putar</button>
+      </div>
+    </div>
+
+    <!-- Popup hasil -->
+    <div id="popup-hasil" class="popup-overlay">
+      <div class="popup-content">
+        <h2>Hasil Analisis</h2>
+        <div class="accuracy-bar">
+          <div id="bar-score" class="bar-fill" style="width: 0%;"></div>
+        </div>
+        <p>Kemiripan: <span id="similarity-score">0</span>%</p>
+
+        <div class="corrections">
+          <h3>Koreksi:</h3>
+          <ul>
+            <li><strong>Tajwid:</strong> <span id="popup-tajwid">-</span></li>
+            <li><strong>Makhraj:</strong> <span id="popup-makhraj">-</span></li>
+            <li><strong>Tartil:</strong> <span id="popup-tartil">-</span></li>
+            <li><strong>Model AI:</strong> <span id="popup-ai">-</span></li>
+            <li><strong>Feedback AI:</strong> <span id="popup-feedback">-</span></li>
+          </ul>
+        </div>
+
+        <div class="audio-controls">
+          <button id="btnCorrect">🔊 Dengarkan Contoh</button>
+          <button id="btnClose">OK</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.15.0/dist/tf.min.js"></script>
+  <script src="/script.js"></script>
+  <script>
+    const ayatMap = {
+      "1": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+      "2": "الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ",
+      "3": "الرَّحْمَٰنِ الرَّحِيمِ",
+      "4": "مَالِكِ يَوْمِ الدِّينِ",
+      "5": "إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ",
+      "6": "اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ",
+      "7": "صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ"
+    };
+
+    function tampilkanAyat() {
+      const ayatNum = document.getElementById("ayatSelect").value;
+      document.getElementById("arabic-text").textContent = ayatMap[ayatNum] || "-";
+    }
+  </script>
+</body>
+</html>
